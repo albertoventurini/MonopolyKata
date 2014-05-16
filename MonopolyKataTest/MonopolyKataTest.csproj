@@ -55,6 +55,7 @@
     <Compile Include="DiceServiceTest.cs" />
     <Compile Include="DieTest.cs" />
     <Compile Include="GameTest.cs" />
+    <Compile Include="PlayersServiceTest.cs" />
     <Compile Include="PlayerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,7 +2,14 @@ using System;
 
 namespace MonopolyKata
 {
-    public class Board
+    public interface IBoard
+    {
+        Int32 GetCellsCount { get; }
+        int GetnewPosition(int posIniziale, int avanzamento);
+        
+    }
+
+    public class Board : IBoard
     {
         private int _cellsNumber;
 

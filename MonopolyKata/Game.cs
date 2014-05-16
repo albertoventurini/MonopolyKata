@@ -1,10 +1,15 @@
 namespace MonopolyKata
 {
-    public class Game
+    public interface IGame
+    {
+        int PlayerNumber { get; }
+    }
+
+    public class Game : IGame
     {
         private readonly int _playerNumber;
 
-        public Game(int playerNumber, IDiceService diceService)
+        public Game(int playerNumber, IDiceService diceService, IBoard board)
         {
             _playerNumber = playerNumber;
         }

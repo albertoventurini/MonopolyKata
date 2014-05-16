@@ -1,8 +1,14 @@
 using System;
+using MonopolyKata;
 
 namespace MonopolyKata
 {
-    public class Die
+    public interface IDie
+    {
+        int Roll();
+    }
+
+    public class Die : IDie
     {
         private readonly int _faces;
         private readonly Random _random;
