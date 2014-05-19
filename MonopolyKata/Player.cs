@@ -20,7 +20,7 @@
 
         public void Play()
         {
-            ActualPosition = _board.GetnewPosition(ActualPosition, _diceService.Roll());
+            ActualPosition = _board.GetNewPosition(ActualPosition, _diceService.Roll());
         }
     }
 }

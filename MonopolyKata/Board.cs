@@ -5,7 +5,7 @@ namespace MonopolyKata
     public interface IBoard
     {
         Int32 GetCellsCount { get; }
-        int GetnewPosition(int posIniziale, int avanzamento);
+        int GetNewPosition(int posIniziale, int avanzamento);
         
     }
 
@@ -20,7 +20,7 @@ namespace MonopolyKata
 
         public Int32 GetCellsCount { get { return _cellsNumber; } }
 
-        public int GetnewPosition(int posIniziale, int avanzamento)
+        public int GetNewPosition(int posIniziale, int avanzamento)
         {
             return (posIniziale + avanzamento)%_cellsNumber;
         }

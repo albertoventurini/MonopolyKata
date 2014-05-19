@@ -29,7 +29,7 @@ namespace MonopolyKataTest
         [InlineData(35, 10, 5)]
         public void GetNewPosition_deve_restituire_la_posizione_finale(int posIniziale, int avanzamento, int posFinale)
         {
-            int newPosition = _board.GetnewPosition(posIniziale, avanzamento);
+            int newPosition = _board.GetNewPosition(posIniziale, avanzamento);
 
             Assert.Equal(posFinale, newPosition);
         }
