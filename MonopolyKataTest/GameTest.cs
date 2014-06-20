@@ -17,20 +17,49 @@ namespace MonopolyKataTest
 
             _board = new Mock<IBoard>();
             _diceService = new Mock<IDiceService>();
-            _game = new Game(10, _diceService.Object, _board.Object);
+            _game = new Game(_diceService.Object, _board.Object);
         }
 
-        [Theory]
-        [InlineData(10)]
-        [InlineData(20)]
-        public void PlayerNumber_deve_restituire_il_numero_di_giocatori(int playerNumber)
+        [Fact]
+        public void Add_deve_aggiungere_un_giocatore_al_gioco()
         {
-            var game = new Game(playerNumber, _diceService.Object, _board.Object);
-            
-            Assert.Equal(playerNumber, game.PlayerNumber);
+            _game.Add("Giocatore1");
+
+            Assert.Equal(1, _game.PlayerNumber);
+            Assert.Equal("Giocatore1", _game.PlayerNames[0]);
         }
 
-        
+        [Fact]
+        public void Start_con_un_giocatore_fallisce()
+        {
+            _game.Add("Giocatore1");
+
+            _game.Start();
+
+            Assert.False(_game.Running);
+        }
+
+        [Fact]
+        public void Start_con_due_giocatori_va()
+        {
+            _game.Add("Giocatore1");
+            _game.Add("Giocatore2");
+
+            _game.Start();
+
+            Assert.True(_game.Running);
+        }
+
+        [Fact]
+        public void Start_con_nove_giocatori_non_va()
+        {
+            for(int i = 0; i < 9; i++)
+                _game.Add("Giocatore");
+
+            _game.Start();
+
+            Assert.False(_game.Running);
+        }
         
 
      
